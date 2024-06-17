@@ -4,7 +4,27 @@ import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>
-  <header>
+  <v-layout class="rounded rounded-md">
+    <v-app-bar title="Application bar">
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/professional">Professional</RouterLink>
+        <RouterLink to="/personal">Personal</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </v-app-bar>
+
+    <!-- <v-navigation-drawer>
+      <v-list>
+        <v-list-item title="Navigation drawer"></v-list-item>
+      </v-list>
+    </v-navigation-drawer> -->
+
+    <v-main class="d-flex align-center justify-center" style="min-height: 300px">
+      <RouterView />
+    </v-main>
+  </v-layout>
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -17,7 +37,7 @@ import HelloWorld from './components/HelloWorld.vue';
     </div>
   </header>
 
-  <RouterView />
+  <RouterView /> -->
 </template>
 
 <style scoped>
