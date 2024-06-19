@@ -6,6 +6,12 @@ import HelloWorld from './components/HelloWorld.vue';
 <template>
   <v-layout class="rounded rounded-md">
     <v-app-bar title="Application bar">
+      <v-avatar color="secondary">
+        <div>
+          <img alt="Vue logo" class="logo" src="@/assets/todd.jpg" width="60" height="60" />
+          <!-- <v-img alt="Todd" src="./assets/todd.jpg"></v-img> -->
+        </div>
+      </v-avatar>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/professional">Professional</RouterLink>
@@ -19,8 +25,29 @@ import HelloWorld from './components/HelloWorld.vue';
         <v-list-item title="Navigation drawer"></v-list-item>
       </v-list>
     </v-navigation-drawer> -->
+    <v-navigation-drawer expand-on-hover rail>
+      <v-list>
+        <v-list-item
+          prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+          subtitle="sandra_a88@gmailcom"
+          title="Sandra Adams"
+        ></v-list-item>
+      </v-list>
 
+      <v-divider></v-divider>
+
+      <v-list density="compact" nav>
+        <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-account-multiple"
+          title="Shared with me"
+          value="shared"
+        ></v-list-item>
+        <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-main class="d-flex align-center justify-center" style="min-height: 300px">
+      <!-- <img alt="Vue logo" class="logo" src="@/assets/todd.jpg" width="125" height="125" /> -->
       <RouterView />
     </v-main>
   </v-layout>
@@ -47,8 +74,10 @@ header {
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  /* display: block; */
+  text-align: center;
+  margin-left: 1000px;
+  /* margin: 0 auto 2rem; */
 }
 
 nav {
