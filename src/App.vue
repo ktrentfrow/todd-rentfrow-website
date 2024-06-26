@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
+import { ref, onMounted } from 'vue';
 import LeftNavigationDrawer from './components/left-navigation/left-navigation-drawer.vue';
+import BottomNavigationDrawer from './components/bottom-navigation/bottom-navigation-drawer.vue';
 import ApplicationBar from './components/application-bar/application-bar.vue';
+import { useNavigationStore } from '@/stores/navigation';
+
+const navStore = useNavigationStore();
+
+onMounted(() => {
+  navStore.getWorkHistories();
+});
 </script>
 
 <template>
@@ -15,7 +23,13 @@ import ApplicationBar from './components/application-bar/application-bar.vue';
       </v-list>
     </v-navigation-drawer> -->
     <left-navigation-drawer />
-    <v-main class="d-flex align-center justify-center" style="min-height: 300px">
+    <bottom-navigation-drawer
+      :bottomLabel="navStore.bottomItemName"
+      :showBottomNavigation="navStore.showBottomNavigation"
+      :bottomText="navStore.bottomTextDisplay"
+    />
+    <v-main class="" style="min-height: 300px">
+      <!-- <v-main class="d-flex align-center justify-center" style="min-height: 300px"> -->
       <!-- <img alt="Vue logo" class="logo" src="@/assets/todd.jpg" width="125" height="125" /> -->
       <RouterView />
     </v-main>
